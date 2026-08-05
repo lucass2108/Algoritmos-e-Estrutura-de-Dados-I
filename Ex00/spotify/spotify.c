@@ -40,8 +40,9 @@ void imprimeArtistas(Artista vet[], int tam)
 {
     for (int i = 0; i < tam; i++)
     {
-        printf("%s\t%s\t%0.2f\t%0.2f\n", vet[i].nome_do_artista, vet[i].genero, vet[i].total_de_reproducoes, vet[i].ouvintes_unicos);
+        printf("%s\t%s\t%0.2f\t%0.2f", vet[i].nome_do_artista, vet[i].genero, vet[i].total_de_reproducoes, vet[i].ouvintes_unicos);
     }
+    //  printf("\n");
 }
 
 Artista *artistaMaisOuvido(Artista vet[], int tam)
@@ -102,7 +103,10 @@ void generoMusicalMaisOuvido(Artista vet[], int tam)
 
 int main()
 {
-    char nomeArquivo[100] = "Ex00\\spotify\\spotify.txt";
+    char nomeArquivo[100];
+    fgets(nomeArquivo, 51, stdin);
+    nomeArquivo[strcspn(nomeArquivo, "\n")] = '\0';
+
     Artista artistas[100];
 
     int tam = carregaDados(artistas, nomeArquivo);

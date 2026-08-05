@@ -51,7 +51,7 @@ int main()
 
     int tam = carregarProdutos(produtos, nomeArquivo);
 
-    printf("Quantidade lida: %d\n", tam);
+    //  printf("Quantidade lida: %d\n", tam);
 
     //  for (int i = 0; i < tam; i++) {
     //      printf("%s %d %.2f\n",

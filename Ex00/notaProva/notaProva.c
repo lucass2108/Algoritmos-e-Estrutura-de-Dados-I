@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void preencherNotas(float notas[10][3], char nomeArquivo[])
 {
@@ -45,7 +46,9 @@ void gerarRelatorio(float notas[10][3])
 
 int main()
 {
-    char nomeArquivo[51] = "Ex00\\notaProva\\notas.txt";
+    char nomeArquivo[51];
+    fgets(nomeArquivo, 51, stdin);
+    nomeArquivo[strcspn(nomeArquivo, "\n")] = '\0';
 
     float notas[10][3];
 
