@@ -7,7 +7,7 @@ typedef struct No noPilha;
 
 struct Pilha
 {
-    noPilha *topo;
+    noPilha *topo; 
 };
 
 struct No

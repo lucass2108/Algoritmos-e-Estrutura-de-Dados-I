@@ -10,7 +10,7 @@ int main()
 
     fgets(str, 15, stdin);
 
-    str[strcspn(str, "\n")] = '\0';
+    str[strcspn(str, "\n")] = '\0'; 
 
     int i = 0;
 
