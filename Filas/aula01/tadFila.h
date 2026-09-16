@@ -25,4 +25,7 @@ int filaVazia(filaInt *f);
 // retorna tamanho da fila
 int tamanhoFila(filaInt *f);
 
+// libera memoria
+void liberaFila(filaInt *f);
+
 #endif

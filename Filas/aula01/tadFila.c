@@ -36,7 +36,7 @@ filaInt *criaFila()
 void enqueue(filaInt *f, int valor)
 {
     // ALoca o novo no
-    noFila *novo = (filaInt *)malloc(sizeof(filaInt));
+    noFila *novo = (noFila *)malloc(sizeof(noFila));
     if (novo == NULL)
         return;
 
@@ -88,13 +88,43 @@ int dequeue(filaInt *f)
 }
 
 // mostra o começo da fila
-void comecoFila(filaInt *f);
+void comecoFila(filaInt *f)
+{
+    printf("%d", f->inicio);
+}
 
 // esvazia a fila
-void esvazia(filaInt *f);
+void esvazia(filaInt *f)
+{
+    while (f->inicio != NULL)
+    {
+        dequeue(f);
+    }
+}
 
 // verifica se a fila está vazia
-int filaVazia(filaInt *f);
+int filaVazia(filaInt *f)
+{
+    if (f->inicio == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 // retorna tamanho da fila
-int tamanhoFila(filaInt *f);
+int tamanhoFila(filaInt *f)
+{
+    return f->tamFila;
+}
+
+// libera memoria
+void liberaFila(filaInt *f)
+{
+    esvazia(f);
+
+    free(f);
+}

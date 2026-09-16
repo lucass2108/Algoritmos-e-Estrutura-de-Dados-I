@@ -10,7 +10,6 @@ void liberaMatriz(int **mat, int linhas);
 
 void imprimeSoma(int **mat, int linhas, int colunas);
 
-
 int main() {
     //DECLARAÃ‡ÃƒO DE VARIÃVEIS
     char nomeArquivo[30] = "alocaçãoMatriz\\4matriz.txt";
