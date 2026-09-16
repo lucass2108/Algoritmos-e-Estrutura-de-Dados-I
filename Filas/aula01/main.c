@@ -23,5 +23,6 @@ int main()
     {
         printf("%d\t", dequeue(f));
     }
+
     return 0;
 }
