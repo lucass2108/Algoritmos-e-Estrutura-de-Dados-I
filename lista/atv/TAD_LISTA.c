@@ -119,12 +119,93 @@ typedef struct listaDE TListaDE;
 
 typedef struct noDE TNoDE;
 
-TListaDE *alocaListaDE();
+struct listaDE
+{
+    TNoDE *inicio;
+    TNoDE *fim;
+    int tam;
+};
 
-TNoDE *alocaNoDE(int valor);
+struct noDE
+{
+    int valor;
+    TNoDE *prox;
+    TNoDE *ant;
+};
 
-int insereComecoListaDE(TListaDE *l, int valor);
+TListaDE *alocaListaDE()
+{
+    TListaDE *l = (TListaDE *)malloc(sizeof(TListaDE));
+    if (l == NULL)
+        return NULL;
 
-int insereOrdenadoListaDE(TListaDE *l, int valor);
+    l->inicio = NULL;
+    l->fim = NULL;
+    l->tam = 0;
 
-void imprimeListaDE(TListaDE *l);
+    return l;
+}
+
+TNoDE *alocaNoDE(int valor)
+{
+    TNoDE *novoNO = (TNoDE *)malloc(sizeof(TNoDE));
+    if (novoNO == NULL)
+        return NULL;
+
+    novoNO->prox = NULL;
+    novoNO->ant = NULL;
+
+    return novoNO;
+}
+
+int insereComecoListaDE(TListaDE *l, int valor)
+{
+}
+
+int insereOrdenadoListaDE(TListaDE *l, int valor)
+{
+    if (!l)
+        return -1;
+
+    TNoDE *novoNO = alocaNoDE(valor);
+
+    if (l->inicio == NULL)
+    {
+        l->inicio = novoNO;
+        l->fim = novoNO;
+        l->tam++;
+        return 1;
+    }
+
+    if (valor < l->inicio->valor)
+    {
+        novoNO->prox = l->inicio;
+        l->inicio->ant = novoNO;
+        l->inicio = novoNO;
+        return 1;
+    }
+
+    TNoDE *aux = l->inicio;
+    while (aux->prox != NULL && aux->prox->valor < valor)
+    {
+        aux = aux->prox;
+    }
+
+    aux->prox = novoNO;
+    novoNO->prox->ant = novoNO;
+}
+
+void imprimeListaDE(TListaDE *l)
+{
+    if (!l)
+        return;
+
+    TNoDE *aux = l->inicio;
+    while (aux != NULL)
+    {
+        printf("%d\t", aux->valor);
+        aux = aux->prox;
+    }
+
+    printf("\n");
+}
