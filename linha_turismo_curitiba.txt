@@ -1,0 +1,26 @@
+1;Rua 24 Horas;09:00;23:00
+2;Praça Rui Barbosa;00:00;24:00
+3;Museu Ferroviário;10:00;22:00
+4;Teatro Paiol;00:00;24:00
+5;Jardim Botânico;06:00;19:30
+6;Rodoferroviária / Mercado Municipal;08:00;18:00
+7;Teatro Guaíra / Universidade Federal do Paraná;00:00;24:00
+8;Paço da Liberdade;10:00;21:00
+9;Passeio Público / Memorial Árabe;06:00;18:00
+10;Centro Cívico;00:00;24:00
+11;Bosque do Papa / Memorial Polonês;08:00;17:30
+12;Museu Oscar Niemeyer;10:00;18:00
+13;Bosque Alemão;08:00;20:00
+14;Universidade Livre do Meio Ambiente;08:00;18:00
+15;Parque São Lourenço;06:00;22:00
+16;Ópera de Arame;10:00;17:50
+17;Parque Tanguá;06:00;20:00
+18;Parque Tingui;06:00;20:00
+19;Memorial Ucraniano;10:00;18:00
+20;Portal Italiano;00:00;24:00
+21;Santa Felicidade;00:00;24:00
+22;Parque Barigui;00:00;24:00 
+23;Torre Panorâmica;10:00;18:00
+24;Setor Histórico;00:00;24:00
+25;Praça Tiradentes;00:00;24:00
+26;Rua das Flores;00:00;24:00
