@@ -21,6 +21,7 @@ int main()
     while (str[i] != '\0')
     {
         str2[strlen(str) - 1 - i] = str[i];
+        i++;
     }
 
     printf("Iterativo: %s\t%s\n", str, str2);
