@@ -40,3 +40,4 @@ void percorrePosOrdem(pal *palavra);
 pal *getRaiz(dic *dicionario);
 
 #endif //ARVORE_DIC_TAD_DIC_H
+ 
