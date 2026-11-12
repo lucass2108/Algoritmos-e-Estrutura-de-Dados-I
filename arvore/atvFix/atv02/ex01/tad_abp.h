@@ -20,4 +20,6 @@ void mostraPaifilho(noAbp *no, int valor);
 
 noAbp *getRaix(abp *arv);
 
+int remover(abp *arv, int valor);
+
 #endif

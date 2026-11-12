@@ -190,7 +190,7 @@ void mostraPaifilho(noAbp *no, int valor)
         else
             aux = aux->dir;
     }
-    
+
     if (ant != NULL)
         printf("Pai: %d ", ant->chave);
 
@@ -209,4 +209,88 @@ noAbp *getRaix(abp *arv)
         return NULL;
 
     return arv->raiz;
+}
+
+int remover(abp *arv, int valor)
+{
+    if (!arv || arv->raiz == NULL)
+        return -1;
+
+    noAbp *aux = arv->raiz;
+    noAbp *pai = NULL;
+    // busca
+    while (aux != NULL && aux->chave != valor)
+    {
+        pai = aux;
+
+        if (valor < aux->chave)
+            aux = aux->esq;
+        else
+            aux = aux->dir;
+    }
+
+    if (aux == NULL)
+        return -1;
+
+    // GRAU 2
+    if (aux->dir != NULL && aux->esq != NULL)
+    {
+        // PREDECESSOR
+        noAbp *prede = aux->esq;
+        pai = aux;
+
+        while (prede->dir != NULL)
+        {
+            pai = prede;
+            prede = prede->dir;
+        }
+
+        aux->chave = prede->chave;
+        aux = prede;
+    }
+
+    // GRAU 1
+    if (aux->esq != NULL || aux->dir != NULL)
+    {
+        if (aux == arv->raiz)
+        {
+            if (aux->esq != NULL)
+                arv->raiz = aux->esq;
+            else
+                arv->raiz = aux->dir;
+        }
+
+        if (aux == pai->esq)
+        {
+            if (aux->esq != NULL)
+                pai->esq = aux->esq;
+            else
+                pai->esq = aux->dir;
+        }
+        else
+        {
+            if (aux->esq != NULL)
+                pai->dir = aux->esq;
+            else
+                pai->dir = aux->dir;
+        }
+    }
+
+    // GRAU 0
+    if (aux->dir == NULL && aux->esq == NULL)
+    {
+        if (aux == arv->raiz)
+        {
+            arv->raiz = NULL;
+        }
+
+        if (aux == pai->esq)
+            pai->esq = NULL;
+        else
+            pai->dir = NULL;
+    }
+
+    free(aux);
+
+    return 1;
 }
