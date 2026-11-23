@@ -18,9 +18,9 @@ int main()
     mostraSArvEsq(getRaix(arv), 10);
     printf("\n");
     mostraPaifilho(getRaix(arv), 89);
-    remover(arv, 10);
-    remover(arv, 5);
-    remover(arv, 89);
+    Remover(arv, 10);
+    Remover(arv, 5);
+    Remover(arv, 89);
     imprimeArv(getRaix(arv), 2);
 
     return 0;

@@ -294,3 +294,59 @@ int remover(abp *arv, int valor)
 
     return 1;
 }
+
+int Remover(abp *arv, int valor)
+{
+    if (!arv || arv->raiz == NULL)
+        return -1;
+
+    noAbp *aux = arv->raiz;
+    noAbp *pai = NULL;
+
+    while (aux != NULL && aux->chave != valor)
+    {
+        pai = aux;
+
+        if (valor < aux->chave)
+            aux = aux->esq;
+        else
+            aux = aux->dir;
+    }
+
+    if (aux == NULL)
+        return -1;
+
+    // GRAU 2
+    if (aux->esq != NULL && aux->dir != NULL)
+    {
+        noAbp *prede = aux->esq;
+        pai = aux;
+
+        while (prede->dir != NULL)
+        {
+            pai = prede;
+            prede = prede->dir;
+        }
+
+        aux->chave = prede->chave;
+        aux = prede;
+    }
+
+    noAbp *filho;
+
+    if (aux->esq != NULL)
+        filho = aux->esq;
+    else
+        filho = aux->dir;
+
+    if (pai == NULL)
+        arv->raiz = filho;
+    else if (aux == pai->esq)
+        pai->esq = filho;
+    else
+        pai->dir = filho;
+
+    free(aux);
+
+    return 1;
+}

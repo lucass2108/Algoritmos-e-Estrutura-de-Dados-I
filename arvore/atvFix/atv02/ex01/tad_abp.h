@@ -22,4 +22,6 @@ noAbp *getRaix(abp *arv);
 
 int remover(abp *arv, int valor);
 
+int Remover(abp *arv, int valor);
+
 #endif
